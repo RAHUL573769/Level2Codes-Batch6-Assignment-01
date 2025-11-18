@@ -1,7 +1,7 @@
-interface IFunction {
+interface IFunction1 {
   (a: string | number | boolean): string | number | boolean | undefined;
 }
-const formatValue: IFunction = (a) => {
+const formatValue: IFunction1 = (a) => {
   if (typeof a === "string") {
     const upperString = a.toUpperCase();
     return upperString;
@@ -59,8 +59,6 @@ interface Users {
   email: string;
   isActive: boolean;
 }
-[];
-
 interface IFunction3 {
   (usersArrayInput: Users[]): Users[];
 }
