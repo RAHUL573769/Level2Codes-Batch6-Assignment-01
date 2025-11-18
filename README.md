@@ -16,6 +16,9 @@ Here the keys of Person are  "name"|"age"
 5.Provide an example of using union and intersection types in TypeScript.
 
 Ans. Union helps to hold values of different types
+
+
+
    Example:
    type age = string | number;
 
