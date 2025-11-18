@@ -87,7 +87,7 @@ const printBookDetails: IFunction4 = (book3) => {
   return message;
 };
 
-function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
+function getUniqueValues<T extends number>(arr1: T[], arr2: T[]): T[] {
   const combined: T[] = [...arr1, ...arr2];
 
   const uniqueArray: T[] = [];
@@ -109,7 +109,6 @@ function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
 
   return uniqueArray;
 }
-
 interface ProductProperties {
   name: string;
   price: number;
