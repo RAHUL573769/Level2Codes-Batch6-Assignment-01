@@ -6,8 +6,10 @@ interface Student {
   age: number;
 }
 
-type PersonKeys = keyof Student;  
+type Person = keyof Student;
+Here the keys of Person are  "name"|"age"
 
+                Answer to question:05
 5.Provide an example of using union and intersection types in TypeScript.
 
 Ans. Union helps to hold values of different types
