@@ -3,6 +3,7 @@
 2.What is the use of the keyof keyword in TypeScript? Provide an example:
 
 Ans.The keyof  creates a union type of all the keys of an object type
+Example:
 interface Student {
   name: string;
   age: number;
