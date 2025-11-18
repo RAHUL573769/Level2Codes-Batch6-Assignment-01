@@ -87,10 +87,13 @@ const printBookDetails: IFunction4 = (book3) => {
   return message;
 };
 
-function getUniqueValues<T extends number>(arr1: T[], arr2: T[]): T[] {
-  const combined: T[] = [...arr1, ...arr2];
+interface IFunction5<T extends number> {
+  (arr1: T[], arr2: T[]): T[];
+}
 
-  const uniqueArray: T[] = [];
+const getUniqueValues: IFunction5<number> = (arr1, arr2) => {
+  const combined: number[] = [...arr1, ...arr2];
+  const uniqueArray: number[] = [];
 
   for (let i = 0; i < combined.length; i++) {
     let isDuplicate = false;
@@ -103,12 +106,13 @@ function getUniqueValues<T extends number>(arr1: T[], arr2: T[]): T[] {
     }
 
     if (!isDuplicate) {
-      uniqueArray[uniqueArray.length] = combined[i] as T;
+      uniqueArray[uniqueArray.length] = combined[i] as number;
     }
   }
 
   return uniqueArray;
-}
+};
+
 interface ProductProperties {
   name: string;
   price: number;
