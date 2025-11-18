@@ -39,7 +39,7 @@ class Person {
     this.age = ageGiven;
   }
   getDetails() {
-    const formattedString = `Name: ${this.name}, Age: ${this.age}  `;
+    const formattedString = `'Name: ${this.name}, Age: ${this.age}' `;
     return formattedString;
   }
 }
@@ -86,3 +86,54 @@ const printBookDetails: IFunction4 = (book3) => {
   const message = `Title: ${book3.title}, Author: ${book3.author}, Published: ${book3.publishedYear}, Available: ${isAvailable}`;
   return message;
 };
+
+function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
+  const combined: T[] = [...arr1, ...arr2];
+
+  const uniqueArray: T[] = [];
+
+  for (let i = 0; i < combined.length; i++) {
+    let isDuplicate = false;
+
+    for (let j = 0; j < uniqueArray.length; j++) {
+      if (combined[i] === uniqueArray[j]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      uniqueArray[uniqueArray.length] = combined[i] as T;
+    }
+  }
+
+  return uniqueArray;
+}
+
+interface ProductProperties {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+function calculateTotalPrice(products: ProductProperties[]): number {
+  if (products.length === 0) {
+    return 0;
+  } else {
+    const value = products
+      .map((product) => {
+        const total = product.price * product.quantity;
+
+        if (product.discount) {
+          const discountAmount = (total * product.discount) / 100;
+          return total - discountAmount;
+        }
+
+        return total;
+      })
+      .reduce((sum, value) => sum + value, 0);
+
+    return value;
+  }
+}
