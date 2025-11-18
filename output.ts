@@ -44,8 +44,6 @@ class Person {
   }
 }
 
-const person1 = new Person("John Doe", 30);
-
 interface BooksArray {
   title: string;
   rating: number;
@@ -69,4 +67,22 @@ interface IFunction3 {
 
 const filterActiveUsers: IFunction3 = (usersArrayInput) => {
   return usersArrayInput.filter((user) => user.isActive);
+};
+
+interface Book3 {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+interface IFunction4 {
+  (book3: Book3): string | undefined;
+}
+
+const printBookDetails: IFunction4 = (book3) => {
+  const isAvailable = book3.isAvailable ? "Yes" : "No";
+
+  const message = `Title: ${book3.title}, Author: ${book3.author}, Published: ${book3.publishedYear}, Available: ${isAvailable}`;
+  return message;
 };
